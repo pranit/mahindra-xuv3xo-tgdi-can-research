@@ -1,4 +1,4 @@
-DID,Name,Bytes,Scaling,Unit,Protected,ProtectedColor,Meaning
+DID,Name,Bytes,Scaling,Unit,Protected,Protected Status,Description
 0x3E8,Ambient Pressure,2,raw*0.5,kPa,No,🟩 Public,Barometric ambient pressure from baro sensor
 0x3E9,Engine RPM,2,raw/4,rpm,No,🟩 Public,Engine speed (primary fast PID)
 0x3EA,Vehicle Speed,1,raw,km/h,No,🟩 Public,Vehicle speed from ECU
