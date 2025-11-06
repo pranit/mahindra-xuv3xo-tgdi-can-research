@@ -1,0 +1,89 @@
+DID,Name,Bytes,Scaling,Unit,Protected,ProtectedColor,Meaning
+0x3E8,Ambient Pressure,2,raw*0.5,kPa,No,🟩 Public,Barometric ambient pressure from baro sensor
+0x3E9,Engine RPM,2,raw/4,rpm,No,🟩 Public,Engine speed (primary fast PID)
+0x3EA,Vehicle Speed,1,raw,km/h,No,🟩 Public,Vehicle speed from ECU
+0x3EB,Coolant Temperature,1,raw-40,degC,No,🟩 Public,Engine coolant temperature
+0x3EC,Intake Air Temperature,1,raw-40,degC,No,🟩 Public,Ambient/intake air temperature pre-throttle
+0x3ED,Throttle Body Temperature,1,raw-40,degC,No,🟩 Public,Temperature near throttle body
+0x3EE,Accelerator Pedal Position,1,raw/255*100,%,No,🟩 Public,Driver pedal demand
+0x3EF,Throttle Plate Angle,1,raw/255*100,%,No,🟩 Public,Electronic throttle opening
+0x3F0,MAP (Manifold Absolute Pressure),1,raw*0.5,kPa,No,🟩 Public,Absolute manifold pressure (subtract baro for boost)
+0x3F1,MAF Airflow,2,raw/100,g/s,No,🟩 Public,MAF mass airflow (GDI)
+0x3F2,Ethanol Content,1,raw/2,%,No,🟩 Public,Fuel ethanol fraction (flex compensation)
+0x3F3,Fuel Temperature,1,raw-40,degC,No,🟩 Public,Fuel temperature sensor
+0x3F4,Fuel Rail Pressure,2,raw*5,kPa,No,🟩 Public,High pressure rail pressure
+0x3F5,Knock Retard Total,1,raw/2,deg,No,🟩 Public,Global knock retard
+0x3F6,Ignition Timing Advance,1,(raw/2)-64,deg,No,🟩 Public,Ignition advance
+0x3F7,Torque Request (Driver),2,raw/2,Nm,No,🟩 Public,Requested engine torque from driver input
+0x3F8,Torque Actual (Delivered),2,raw/2,Nm,No,🟩 Public,Calculated delivered crank torque
+0x3F9,EGR Command %,1,raw/255*100,%,No,🟩 Public,EGR valve command percentage
+0x3FA,Wideband Lambda,2,raw/32768,lambda,No,🟩 Public,Wideband lambda sensor reading
+0x3FB,Short Term Fuel Trim,1,(raw-128)/1.6,%,No,🟩 Public,Short term fuel trim bank 1
+0x3FC,Long Term Fuel Trim,1,(raw-128)/1.6,%,No,🟩 Public,Long term fuel trim bank 1
+0x3FD,Catalyst Temperature,2,raw-40,degC,No,🟩 Public,Catalyst temperature sensor
+0x3FE,Engine Oil Temperature,1,raw-40,degC,No,🟩 Public,Engine oil temperature (if present)
+0x3FF,Engine Load,1,raw/255*100,%,No,🟩 Public,Calculated engine load
+0x400,Spark Advance Base Map,2,raw/2-64,deg,Yes,🟥 Protected,Base spark advance value from calibration maps
+0x401,Knock Retard Cyl 1,1,raw/2,deg,Yes,🟥 Protected,Per-cylinder knock retard for cylinder 1
+0x402,Knock Retard Cyl 2,1,raw/2,deg,Yes,🟥 Protected,Per-cylinder knock retard for cylinder 2
+0x403,Knock Retard Cyl 3,1,raw/2,deg,Yes,🟥 Protected,Per-cylinder knock retard for cylinder 3
+0x410,Misfire Counter Cyl 1,2,raw,count,Yes,🟥 Protected,Misfire event counter for cylinder 1
+0x411,Misfire Counter Cyl 2,2,raw,count,Yes,🟥 Protected,Misfire event counter for cylinder 2
+0x412,Misfire Counter Cyl 3,2,raw,count,Yes,🟥 Protected,Misfire event counter for cylinder 3
+0x420,STFT Bank 1,1,(raw-128)/1.6,%,Yes,🟥 Protected,Alternate short term fuel trim representation
+0x421,LTFT Bank 1,1,(raw-128)/1.6,%,Yes,🟥 Protected,Alternate long term fuel trim representation
+0x430,Cylinder Injection Timing 1,2,raw,us,Yes,🟥 Protected,Commanded injector pulse width for cylinder 1
+0x431,Cylinder Injection Timing 2,2,raw,us,Yes,🟥 Protected,Commanded injector pulse width for cylinder 2
+0x432,Cylinder Injection Timing 3,2,raw,us,Yes,🟥 Protected,Commanded injector pulse width for cylinder 3
+0x440,Ignition Advance Cyl1,2,raw/2-64,deg,Yes,🟥 Protected,Per-cylinder ignition advance command
+0x450,Torque Model Output Index,1,raw,index,Yes,🟥 Protected,Index used to look up torque model outputs
+0x460,Adaptive Knock Threshold,2,raw,internal,Yes,🟥 Protected,Adaptive knock detection threshold value
+0x470,Reserved,1,raw,NA,Yes,🟥 Protected,Reserved engineering DID
+0x500,Idle Learning Value,2,raw/2,%,Yes,🟥 Protected,Stored idle adaptation value
+0x501,Fuel Pump Duty,1,raw/2,%,Yes,🟥 Protected,Commanded fuel pump duty cycle
+0x502,Turbine Wastegate Duty,1,raw/255*100,%,Yes,🟥 Protected,Wastegate PWM command (raw)
+0x503,Spark Learning Correction,1,raw/2,deg,Yes,🟥 Protected,Long-term spark correction value
+0x520,Knock Learning Global,2,raw/2,deg,Yes,🟥 Protected,Global knock learning correction
+0x530,Catalyst Efficiency Learned,1,raw/255*100,%,Yes,🟥 Protected,Learned catalyst efficiency metric
+0x540,Adaptive Boost Trim,2,raw*0.1,kPa,Yes,🟥 Protected,Boost trim applied by adaptation algorithms
+0x550,Final Torque Limit (Dynamic),2,raw/2,Nm,Yes,🟥 Protected,Post-intervention torque limit applied by ECU
+0x551,Cylinder Torque Individual,6,3x(2) raw/2,Nm,Yes,🟥 Protected,Per-cylinder torque allocation (sequence for cylinders)
+0x552,Gear-Based Torque Cap,6,3x(2) raw/2,Nm,Yes,🟥 Protected,Torque cap values indexed by gear
+0x553,Turbo Overboost Allowed,1,raw*0.5,kPa,Yes,🟥 Protected,Absolute MAP ceiling permitted by ECU
+0x554,Wastegate Duty Raw,1,raw/255*100,%,Yes,🟥 Protected,Raw wastegate PWM before driver stage
+0x555,Turbo Pre-Control Output,1,raw/255*100,%,Yes,🟥 Protected,Feedforward component of turbo control
+0x556,Boost PID Integrator State,2,signed raw,internal,Yes,🟥 Protected,Integrator memory for boost PID controller
+0x557,Boost Control Mode,1,raw,enum,Yes,🟥 Protected,Control mode: open-loop/closed-loop/overboost-protect
+0x560,Knock Learn Global,2,raw/2,deg,Yes,🟥 Protected,Long-term knock correction (global)
+0x561,Knock Learn Cyl 1,2,raw/2,deg,Yes,🟥 Protected,Cylinder 1 knock learn
+0x562,Knock Learn Cyl 2,2,raw/2,deg,Yes,🟥 Protected,Cylinder 2 knock learn
+0x563,Knock Learn Cyl 3,2,raw/2,deg,Yes,🟥 Protected,Cylinder 3 knock learn
+0x564,Knock Window Counters,4,raw,counters,Yes,🟥 Protected,Per-window counters for knock events
+0x570,HPFP Command State,1,raw,bitfield,Yes,🟥 Protected,High-pressure fuel pump command/status bits
+0x571,HPFP Target Rail Pressure,2,raw*5,kPa,Yes,🟥 Protected,Target rail pressure for HPFP
+0x572,HPFP Closed-Loop Error,2,signed raw,kPa,Yes,🟥 Protected,Target minus actual rail pressure
+0x573,Injector Pulse Raw,2,raw,us,Yes,🟥 Protected,Commanded injector pulse width (GDI)
+0x580,Thermal Derate Level,1,raw,enum,Yes,🟥 Protected,Thermal derate state (0..5)
+0x581,Component Limiting Source,1,raw,enum,Yes,🟥 Protected,Which subsystem is enforcing a limit
+0x582,ECU Thermal Margin,2,raw,internal,Yes,🟥 Protected,Thermal margin estimate for derate decisions
+0x590,Torque Intervention Reason,1,raw,bitmask,Yes,🟥 Protected,Bitmask describing why torque was limited
+0x5A0,Launch Control Active,1,raw,bool,Yes,🟥 Protected,Launch control enable flag (usually disabled in production)
+0x5A1,Traction Ctrl Torque Cut,2,raw/2,Nm,Yes,🟥 Protected,Torque removed by traction/ESC interventions
+0x5A2,Rev-Limit Strategy State,1,raw,enum,Yes,🟥 Protected,Active rev-limit strategy
+0x5A3,ESC Request Source,1,raw,bitmask,Yes,🟥 Protected,Which module requested ESC action
+0x5B0,Torque Model Coeff A,4,raw(float-like),internal,Yes,🟥 Protected,Torque model coefficient A (fixed-point)
+0x5B1,Torque Model Coeff B,4,raw(float-like),internal,🟥 Protected,,Torque model coefficient B (fixed-point)
+0x5B2,Boost Map Indexing,2,raw,index,Yes,🟥 Protected,Index into boost calibration table
+0x5F0,Security Lock Status,1,raw,bitfield,Yes,🟥 Protected,Read-only security status flags
+0x5F1,Last Security Event,4,raw,timestamp-like,Yes,🟥 Protected,Timestamp of most recent security access attempt
+0x5F2,Last Torque Intervention Timestamp,4,raw,timestamp-like,Yes,🟥 Protected,Time of last torque intervention event
+0x600,Current DTC Status Bitmap,4,raw,bitmask,No,🟩 Public,Current DTC status bits
+0x610,Freeze Frame Snapshot 1,8,multi,NA,No,🟩 Public,Freeze frame data set 1
+0x611,Freeze Frame Snapshot 2,8,multi,NA,No,🟩 Public,Freeze frame data set 2
+0x700,OBD MIL Status,1,raw,bitmask,No,🟩 Public,MIL lamp and OBD status
+0xF187,ECU Software Version,8,ascii,string,Yes,🟥 Protected,ECU software version string (read-only)
+0xF188,ECU Hardware Version,4,ascii,string,Yes,🟥 Protected,ECU hardware version (read-only)
+0xF189,Calibration Code,8,ascii,string,Yes,🟥 Protected,Calibration identifier
+0xF190,VIN,17,ascii,string,Yes,🟥 Protected,Vehicle Identification Number
+0xF195,Engine Variant Coding,2,raw,code,Yes,🟥 Protected,Engine variant and configuration coding
+0xF198,CAN Configuration Data,4,raw,internal,Yes,🟥 Protected,CAN network configuration block
